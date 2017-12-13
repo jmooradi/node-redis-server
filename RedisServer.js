@@ -44,7 +44,7 @@ const childprocess = require('child_process');
 const events = require('events');
 const PromiseQueue = require('promise-queue');
 const regExp = {
-  terminalMessage: /now\sready|already\sin\suse|not\slisten|error|denied/im,
+  terminalMessage: /now\sready|already\sin\suse|not\slisten|error|denied|ready\sto\saccept\sconnections/im,
   errorMessage: /#\s+(.*error.*)/im,
   singleWhiteSpace: /\s/g,
   multipleWhiteSpace: /\s\s+/g
@@ -147,6 +147,7 @@ class RedisServer extends events.EventEmitter {
 
     switch (result.key) {
       case 'nowready':
+      case 'readytoacceptconnections'
         break;
 
       case 'alreadyinuse':
