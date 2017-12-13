@@ -147,7 +147,7 @@ class RedisServer extends events.EventEmitter {
 
     switch (result.key) {
       case 'nowready':
-      case 'readytoacceptconnections'
+      case 'readytoacceptconnections':
         break;
 
       case 'alreadyinuse':
